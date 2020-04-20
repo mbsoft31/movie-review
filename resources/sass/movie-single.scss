@@ -1,0 +1,53 @@
+*, ::after, ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#app {
+    @apply bg-gray-100;
+    direction: rtl;
+    //background: linear-gradient(180deg , theme('colors.indigo.500'), rgba(49, 130, 206, 0.1));
+}
+
+.main-header {
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg , theme('colors.primary'), rgba(49, 130, 206, 0.1));
+        //background: linear-gradient(135deg, red, green 60%, orange);
+        opacity: 0.8;
+    }
+}
+
+.entry-title {
+    @apply uppercase text-4xl font-bold my-2 text-primary;
+    margin-top: 0;
+    padding-bottom: 25px;
+}
+
+.review-info {
+    h3 {
+        @apply uppercase text-sm font-bold my-2 text-primary;
+    }
+
+    ul {
+        @apply flex flex-wrap;
+    }
+    li, span{
+        @apply text-lg capitalize font-semibold tracking-wide leading-relaxed px-1;
+        &::after {
+            @apply font-normal;
+            content: ' | ';
+        }
+        &:last-child::after{
+            content: '';
+        }
+    }
+}
+
+@import "components/tabs";
+
+@import "components/footer";
