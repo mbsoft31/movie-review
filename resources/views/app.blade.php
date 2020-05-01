@@ -15,7 +15,7 @@
 </head>
 <body class="relative">
 
-<div id="app">
+<div id="app" class="bg-gray-400">
     @yield('layout')
 </div>
 

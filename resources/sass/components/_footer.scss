@@ -1,6 +1,12 @@
-footer.site-footer .site-info {
-    background-color: #0a0a0a;
-    padding: 20px 0;
-    color: white;
-    line-height: 32px;
+footer.site-footer {
+    .footer-cols-4 {
+        @apply grid grid-cols-1 gap-4;
+        @screen sm {
+            @apply grid-cols-4 #{!important};
+        }
+    }
+    .site-info {
+        @apply text-gray-100 bg-gray-900 py-6 leading-loose;
+    }
+
 }

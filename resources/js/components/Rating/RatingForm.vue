@@ -42,19 +42,23 @@
             },
             rtl: {
                 default: false,
-            }
+            },
+            route: {
+                default: '/review/store'
+            },
+            movie: {
+            },
+            user: {}
         },
         data() {
             return {
-                user: 1,
-                movie: 'wonder-park',
                 rating: 5.5,
                 reviewText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam aspernatur aut autem consequatur consequuntur cupiditate debitis dignissimos distinctio ducimus ea eaque eius eligendi fugiat hic illum impedit in inventore ipsam iure iusto magni molestias mollitia neque, nihil odio possimus quam recusandae reprehenderit repudiandae rerum tempore veniam vero voluptas voluptatibus.',
             }
         },
         methods: {
             submitReview() {
-                axios.post('/api/review/store', {
+                axios.post(this.route, {
                     rating: this.rating,
                     review: this.reviewText,
                     user: this.user,

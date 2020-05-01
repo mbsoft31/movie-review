@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 use Mbsoft\Models\Movie;
 
 class MovieSeeder extends Seeder
@@ -13,6 +14,19 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
+        //dd(Storage::directories('/public'));
+        $dirs = Storage::directories('/public');
+        foreach ($dirs as $folder) {
+            Storage::deleteDirectory($folder);
+        }
+        //dd(Storage::directories('/public'));
+        $user = \App\User::create([
+            'username' => "mbsoft",
+            'email' => "bekhouche.mouadh@gmail.com",
+            'email_verified_at' => now(),
+            'password' => \Illuminate\Support\Facades\Hash::make('mbsoft'), // password
+        ]);
+
         $data = collect([
             collect([
                 'title' => 'Wonder Park',
@@ -24,28 +38,31 @@ class MovieSeeder extends Seeder
                 'producers' => ['Josh Appelbaum', 'Kendra Haaland', 'Andre Nemec'],
                 'directors' => ['Dylan Brown'],
                 'categories' => ['comedy', 'adventure'],
-                'cover' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-1.jpg',
-                'poster' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-cover.jpg',
-                'trailer' => "https://youtu.be/VML6rQWssSk",
+                'cover' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg',
+                'poster' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-cover.jpg',
+                'trailer' => [
+                    'url' => 'https://youtu.be/VML6rQWssSk',
+                    'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg'
+                ],
                 'videos' => [
                     [
                         'url' => 'https://youtu.be/VML6rQWssSk',
-                        'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-2.jpg',
+                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg'
                     ],
                     [
                         'url' => 'https://youtu.be/5MRSBuQt51A',
-                        'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-4.jpg',
+                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-2.jpg',
                     ],
                     [
                         'url' => 'https://youtu.be/vYm7mYd0SgE',
-                        'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-1.jpg',
+                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-3.jpg',
                     ],
                 ],
                 'gallery' => [
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-2.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-4.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-1.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/wp-3.jpg',
+                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-2.jpg',
+                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-4.jpg',
+                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg',
+                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-3.jpg',
                 ]
             ]),
             collect([
@@ -60,7 +77,10 @@ class MovieSeeder extends Seeder
                 'categories' => ['action', 'adventure'],
                 'cover' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-1.jpg',
                 'poster' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/dragon-cover.jpg',
-                'trailer' => "https://youtu.be/SkcucKDrbOI",
+                'trailer' => [
+                    'url' => 'https://youtu.be/SkcucKDrbOI',
+                    'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-1.jpg',
+                ],
                 'videos' => [
                     [
                         'url' => 'https://youtu.be/SkcucKDrbOI',
@@ -72,10 +92,10 @@ class MovieSeeder extends Seeder
                     ],
                 ],
                 'gallery' => [
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-1.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-4.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-3.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/d-2.jpg'
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-1.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-2.jpg'
                 ]
             ]),
             collect([
@@ -83,29 +103,32 @@ class MovieSeeder extends Seeder
                 'summary' => 'Red, Chuck, Bomb and the rest of their feathered friends are surprised when a green pig suggests that they put aside their differences and unite to fight a common threat. Aggressive birds from an island covered in ice are planning to use an elaborate weapon to destroy the fowl and swine way of life. After picking their best and brightest, the birds and pigs come up with a scheme to infiltrate the island, deactivate the device and return to their respective paradises intact.',
                 'release_date' => Carbon::parse('Aug 2, 2019'),
                 'runtime' => '1h 36min',
-                'stars' => ['Jason Sudeikis', 'Josh Gad', 'Leslie Jones'],
+                'stars' => ['Peter Ackerman', 'Eyal Podell', 'Jonathon E. Stewart'],//['Jason Sudeikis', 'Josh Gad', 'Leslie Jones'],
                 'writers' => ['Peter Ackerman', 'Eyal Podell', 'Jonathon E. Stewart'],
                 'producers' => ['John Cohen'],
                 'directors' => ['Thurop Van Orman'],
                 'categories' => ['animation', 'comedy'],
-                'cover' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-4.jpg',
-                'poster' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-cover.jpg',
-                'trailer' => "https://youtu.be/RSKQ-lVsMdg",
+                'cover' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                'poster' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\dragon-cover.jpg',
+                'trailer' => [
+                    'url' => 'https://youtu.be/RSKQ-lVsMdg',
+                    'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                ],
                 'videos' => [
                     [
                         'url' => 'https://youtu.be/RSKQ-lVsMdg',
-                        'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-4.jpg',
+                        'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
                     ],
                     [
                         'url' => 'https://youtu.be/egDqXpwKwnk',
-                        'img' => 'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-3.jpg',
+                        'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
                     ],
                 ],
                 'gallery' => [
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-4.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-3.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-2.jpg',
-                    'http://demo.themexpert.com/wordpress/gamez/movie-review/wp-content/uploads/sites/10/2016/06/ab-1.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-2.jpg',
+                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-1.jpg',
                 ]
             ]),
         ]);
@@ -114,6 +137,8 @@ class MovieSeeder extends Seeder
             $movie = Movie::createMovie($single->only([
                 'title', 'release_date', 'runtime', 'summary'
             ])->toArray());
+
+            $user->movies()->attach($movie);
 
             // Movie casts
             $movie->addManyCategories($single['categories']);
@@ -127,8 +152,8 @@ class MovieSeeder extends Seeder
                 ->toMediaCollection("cover");
             $movie->addMediaFromUrl($single['poster'])
                 ->toMediaCollection("poster");
-            $movie->addMediaFromUrl($single['cover'])
-                ->withCustomProperties(['url' => $single['trailer']])
+            $movie->addMediaFromUrl($single['trailer']['img'])
+                ->withCustomProperties(['url' => $single['trailer']['url']])
                 ->toMediaCollection("trailer");
             foreach ($single['gallery'] as $item) {
                 $movie->addMediaFromUrl($item)

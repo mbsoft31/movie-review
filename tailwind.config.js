@@ -5,7 +5,11 @@ module.exports = {
             center: true,
         },
         colors:{
-            'primary': '#00BCD4'
+            'primary': '#00BCD4',
+            'primary-o-25': 'rgba(0, 188, 212, .25)',
+            'primary-o-50': 'rgba(0, 188, 212, .50)',
+            'primary-o-75': 'rgba(0, 188, 212, .75)',
+            'primary-o-100': 'rgba(0, 188, 212, 1)',
         },
         opacity: {
             '10': '.1',
@@ -27,9 +31,20 @@ module.exports = {
             '112': '28rem',
             '120': '30rem',
             '128': '32rem',
-        }
+        },
+        aspectRatio: { // defaults to {}
+            'none': 0,
+            'square': [1, 1], // or 1 / 1, or simply 1
+            '16/9': [16, 9],  // or 16 / 9
+            '4/3': [4, 3],    // or 4 / 3
+            '21/9': [21, 9],  // or 21 / 9
+        },
     },
   },
-  variants: {},
-  plugins: [],
+  variants: {
+      aspectRatio: ['responsive'],
+  },
+  plugins: [
+      require('tailwindcss-aspect-ratio')
+  ],
 }

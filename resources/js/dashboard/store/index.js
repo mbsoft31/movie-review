@@ -1,0 +1,21 @@
+
+import Vuex from 'vuex'
+import Vue from "vue";
+import movieStore from "./movie.store";
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+  },
+  getters: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
+  modules: {
+      movie: movieStore,
+  }
+})
+

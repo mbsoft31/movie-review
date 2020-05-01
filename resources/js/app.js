@@ -2,8 +2,13 @@ require('./bootstrap');
 import Vue from "vue";
 import {Tabs, Tab} from 'vue-tabs-component';
 import StarRating from 'vue-star-rating';
+import VueTippy, { TippyComponent } from "vue-tippy";
+import "tippy.js/themes/light.css";
+Vue.use(VueTippy);
+import './../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 
 // third party component
+Vue.component("tippy", TippyComponent);
 Vue.component('tabs', Tabs);
 Vue.component('tab', Tab);
 Vue.component('star-rating', StarRating);
@@ -21,4 +26,15 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 const app = new Vue({
     //vuetify: vuetify,
     el: '#app',
+    methods: {
+        logout() {
+            axios.post('/logout')
+                .then( (res) => [
+                    window.location = '/'
+                ])
+                .catch( (err) => {
+                    console.error('Error logout', err)
+                })
+        }
+    }
 });

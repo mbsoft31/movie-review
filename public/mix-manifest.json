@@ -1,9 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/movie-single.css": "/css/movie-single.css",
+    "/css/main.css": "/css/main.css",
     "/css/movie-create.css": "/css/movie-create.css",
     "/css/tailwind.css": "/css/tailwind.css",
-    "/js/app.js.map": "/js/app.js.map",
-    "/js/dashboard/app.js": "/js/dashboard/app.js",
-    "/js/dashboard/app.js.map": "/js/dashboard/app.js.map"
+    "/js/dashboard/app.js": "/js/dashboard/app.js"
 }

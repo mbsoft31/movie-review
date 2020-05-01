@@ -3,6 +3,7 @@
 
 namespace Mbsoft\Models;
 
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -43,12 +44,33 @@ class Movie extends Model implements HasMedia
 
     public function getReleased()
     {
+        if (Carbon::make($this->release_date) == null)
+            return "";
         return Carbon::make($this->release_date)->format('M d, Y');
     }
 
     public function getTrailer()
     {
         return '';
+    }
+
+    public function getReview($user){
+        return Review::where("user_id", $user->id)->where("movie_id", $this->id)->first();
+    }
+
+    public function getRating(){
+        $reviews = $this->reviews;
+        $total_reviews = $this->reviews()->count();
+        $avg_rating = $this->reviews()->avg("rating");
+        return [
+            "reviews" => $reviews,
+            "total_rating" => $total_reviews ?? 0,
+            "avg_rating" => $avg_rating ?? 0
+        ];
+    }
+
+    public function isReviewedBy($user){
+        return Review::where("user_id", $user->id)->where("movie_id", $this->id)->first() != null;
     }
 
     /**
@@ -196,17 +218,22 @@ class Movie extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('trailer')
-            ->singleFile()
-            ->withResponsiveImages();
+            ->singleFile();
+            //->withResponsiveImages();
         $this->addMediaCollection('cover')
-            ->singleFile()
-            ->withResponsiveImages();
+            ->singleFile();
+            //->withResponsiveImages();
         $this->addMediaCollection('poster')
-            ->singleFile()
-            ->withResponsiveImages();
+            ->singleFile();
+            //->withResponsiveImages();
 
-        $this->addMediaCollection('gallery')
-            ->withResponsiveImages();
+        $this->addMediaCollection('gallery');
+            //->withResponsiveImages();
         $this->addMediaCollection('videos');
     }
+
+    public function reviews(){
+        return $this->belongsToMany(User::class, 'reviews')->withPivot(['review','rating']);
+    }
+
 }

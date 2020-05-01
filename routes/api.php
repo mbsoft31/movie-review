@@ -37,3 +37,23 @@ Route::post('/review/store', function (){
         \request()->all()
     );
 });
+
+Route::get('/review/person', function (){
+    $persons = \Mbsoft\Models\Person::select(['id', 'name'])->with('movies')->get();
+    $res = collect();
+    foreach ($persons as $person) {
+        $roles = collect();
+        foreach ($person['movies'] as $movie) {
+            $roles->push($movie->pivot->role);
+        }
+        $res->push([
+            'id' => $person['id'],
+            'name' => $person['name'],
+            'roles' => $roles
+        ]);
+    }
+    return response()->json(
+        $res
+    );
+});
+

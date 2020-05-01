@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "scheherazade";
+
+  src: url("../fonts/Scheherazade-Regular.ttf");
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+#app {
+  background-color: #f7fafc;
+  font-size: 1.125rem;
+  direction: rtl;
+  font-family: scheherazade;
+}
+
+.tippy-tooltip {
+  padding: 0 !important;
+  text-align: start !important;
+  direction: rtl;
+}
