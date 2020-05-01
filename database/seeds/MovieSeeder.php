@@ -38,31 +38,31 @@ class MovieSeeder extends Seeder
                 'producers' => ['Josh Appelbaum', 'Kendra Haaland', 'Andre Nemec'],
                 'directors' => ['Dylan Brown'],
                 'categories' => ['comedy', 'adventure'],
-                'cover' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg',
-                'poster' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-cover.jpg',
+                'cover' => './../../public\images\wonder-park\wp-1.jpg',
+                'poster' => './../../public\images\wonder-park\wp-cover.jpg',
                 'trailer' => [
                     'url' => 'https://youtu.be/VML6rQWssSk',
-                    'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg'
+                    'img' => './../../public\images\wonder-park\wp-1.jpg'
                 ],
                 'videos' => [
                     [
                         'url' => 'https://youtu.be/VML6rQWssSk',
-                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg'
+                        'img' => './../../public\images\wonder-park\wp-1.jpg'
                     ],
                     [
                         'url' => 'https://youtu.be/5MRSBuQt51A',
-                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-2.jpg',
+                        'img' => './../../public\images\wonder-park\wp-2.jpg',
                     ],
                     [
                         'url' => 'https://youtu.be/vYm7mYd0SgE',
-                        'img' => 'C:\wamp64\www\movie-review\public\images\wonder-park\wp-3.jpg',
+                        'img' => './../../public\images\wonder-park\wp-3.jpg',
                     ],
                 ],
                 'gallery' => [
-                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-2.jpg',
-                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-4.jpg',
-                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-1.jpg',
-                    'C:\wamp64\www\movie-review\public\images\wonder-park\wp-3.jpg',
+                    './../../public\images\wonder-park\wp-2.jpg',
+                    './../../public\images\wonder-park\wp-4.jpg',
+                    './../../public\images\wonder-park\wp-1.jpg',
+                    './../../public\images\wonder-park\wp-3.jpg',
                 ]
             ]),
             collect([
@@ -92,10 +92,10 @@ class MovieSeeder extends Seeder
                     ],
                 ],
                 'gallery' => [
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-1.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-2.jpg'
+                    './../../public\images\how-to-train-your-dragon\d-1.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-4.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-3.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-2.jpg'
                 ]
             ]),
             collect([
@@ -108,27 +108,27 @@ class MovieSeeder extends Seeder
                 'producers' => ['John Cohen'],
                 'directors' => ['Thurop Van Orman'],
                 'categories' => ['animation', 'comedy'],
-                'cover' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
-                'poster' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\dragon-cover.jpg',
+                'cover' => './../../public\images\how-to-train-your-dragon\d-4.jpg',
+                'poster' => './../../public\images\how-to-train-your-dragon\dragon-cover.jpg',
                 'trailer' => [
                     'url' => 'https://youtu.be/RSKQ-lVsMdg',
-                    'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                    'img' => './../../public\images\how-to-train-your-dragon\d-4.jpg',
                 ],
                 'videos' => [
                     [
                         'url' => 'https://youtu.be/RSKQ-lVsMdg',
-                        'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
+                        'img' => './../../public\images\how-to-train-your-dragon\d-4.jpg',
                     ],
                     [
                         'url' => 'https://youtu.be/egDqXpwKwnk',
-                        'img' => 'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
+                        'img' => './../../public\images\how-to-train-your-dragon\d-3.jpg',
                     ],
                 ],
                 'gallery' => [
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-4.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-3.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-2.jpg',
-                    'C:\wamp64\www\movie-review\public\images\how-to-train-your-dragon\d-1.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-4.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-3.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-2.jpg',
+                    './../../public\images\how-to-train-your-dragon\d-1.jpg',
                 ]
             ]),
         ]);
