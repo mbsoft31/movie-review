@@ -1,7 +1,12 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/foosha21/demo.fooshar.com
+    - export REPOPUBLICPATH=/home/foosha21/repositories/movie-review
     #- /bin/cp -r * $DEPLOYPATH #copy all from root
-    - /bin/cp -R ./public/* $DEPLOYPATH/public_html/
+    - /bin/cp -R $REPOPUBLICPATH/css $DEPLOYPATH/
+    - /bin/cp -R $REPOPUBLICPATH/js $DEPLOYPATH/
+    - /bin/cp -R $REPOPUBLICPATH/images $DEPLOYPATH/
+    - /bin/cp -R $REPOPUBLICPATH/fonts $DEPLOYPATH/
+    - /bin/cp $REPOPUBLICPATH/* $DEPLOYPATH/
     #- /bin/cp ./public/js/*.js $DEPLOYPATH/public_html/js
     #- /bin/cp ./public/css/*.css $DEPLOYPATH/public_html/css
